@@ -1,0 +1,43 @@
+Preferences (mudar "pasta\pasta")
+CTRL+SHIFT+P
+digite "Preferences"
+clicar em "Preferences : Settings"
+digite "compact" até aparecer "Explorer:Compact Folders"
+na opção Explorer: Compact Folders desmarque essa opção
+
+para criar um global.json
+dotnet new globaljson --sdk version "5.0.402"
+
+para listar todas as ferramentas
+dotnet tool install list --global
+
+instalar o pacote EntityFramework
+dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-ef --version 5.0.2 (para instalar uma versão específica do EntityFramework)
+
+para instalar o Entity no Projeto
+ctrl+shift+p
+digitar: nuget: open nuget gallery
+
+escolher esses pacotes:
+	Microsoft.EntityFrameworkCore
+	Microsoft.EntityFrameworkCore.Design
+	Microsoft.EntityFrameworkCore.Sqlite ou ".SqlServer para SqlServer
+	Microsoft.EntityFrameworkCore.Tools
+
+Quando o OMNISharp não está funcionando Ex:. (DbContext clica com ctrl+. e não vem o "using EntityFrameWorkCore")
+ctrl+shit+p
+Selecione "OmniSharp: Select Project"
+Selecione "OmniSharp: Proeventos.csproj ex"
+Selecione "OmniSharp: Restar OmniSharp"
+
+Comandos EF Entity FrameWork
+no fim de cada comando -h (help do comando em questão)
+Dotnet ef migrations add init - cria uma migration de nome init
+dotnet ef migrations add init -o Data/Migrations (cria uma migration de nome init e "-o" output e "Data/Migrations" o caminho onde será criada.)
+dotnet ef database update (cria o banco de dados ou atualiza com novas migrations)
+
+Comandos para setar nome do usuário e email do usuario no git
+git init
+git config --global user.name "JoseFernandesFarias"
+git config --global user.email josefernandes34sp@gmail.com ou "josefernandes34sp@gmail.com"
