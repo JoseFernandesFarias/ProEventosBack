@@ -2,23 +2,19 @@
 
 <hr>
 
-<div class="row row-cols-lg-auto g-3 align-items-center">
+<form class="row row-cols-lg-auto g-3 align-items-center" action="">
   <div>
     <label class="visually-hidden" for="inlineFormInputGroupUsername"></label>
     <div class="input-group">
-      <input type="text"
-      class="form-control"
-      placeholder="buscar"
-      [(ngModel)]="filtrolista"
-      />
+      <input type="text" class="form-control" placeholder="buscar" />
     </div>
   </div>
   <div>
     <button type="submit" class="btn btn-outline-success">Buscar</button>
   </div>
-</div>
+</form>
 
-<h3>Filtro : {{filtrolista}}</h3>
+<hr>
 
 <table class="table table-striped">
   <thead class="table-dark">
@@ -27,46 +23,34 @@
         <button type="button" class="btn btn-outline-light btn-sm"
         (click)="exibirImagens()">
         {{!mostrarImagem ? "Exibir" : "Ocultar"}}
-      </button>
-      </th>
-      <th class="text-center" scope="col">#</th>
+        </button></th>
+      <th>#</th>
       <th>Tema</th>
       <th>Local</th>
       <th class="text-center">Data</th>
       <th class="text-center">Qtd Pessoas</th>
-      <th class="text-center" scope="col">Lote</th>
+      <th class="text-center">Lote</th>
       <th>Opções</th>
     </tr>
   </thead>
   <tbody *ngIf="eventos && eventos.length">
-    <tr *ngFor="let evento of eventosFiltrados">
+    <tr *ngFor="let evento of eventos">
       <td>
         <img [collapse]="!mostrarImagem"
         [isAnimated]="true"
-        src="/assets/{{evento.imagemURL}}"
+         src="/assets/{{evento.imagemURL}}"
         alt=""
         [style.width.px]="larguraImagem"
-        [style.margin.px]="margemImagem">
+        [style.margin.px]="margemImagem"
+        >
       </td>
-      <th scope="row">{{evento.eventoId}}</th>
+      <td>{{evento.eventoId}}</td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
       <td class="text-center">{{evento.dataEvento}}</td>
       <td class="text-center">{{evento.qtdPessoas}}</td>
       <td class="text-center">{{evento.lote}}</td>
-      <td>
-        <button type="button" class="btn btn-primary btn-sm me-2">Editar</button>
-        <button type="button" class="btn btn-danger btn-sm">Excluir</button>
-      </td>
+      <td></td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!eventos.length">
-    <tr>
-      <td colspan="8" class="text-center">
-        <h4>Nenhum Evento Encontrado!</h4>
-      </td>
-    </tr>
-  </tfoot>
-
 </table>
-

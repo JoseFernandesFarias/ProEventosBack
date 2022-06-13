@@ -112,3 +112,87 @@ O MÓDULO "BrowserAnimationsModule"
 se o ngx-bootstrap estiver em conforme com sua versão ele é incluído automaticamente
 se não estiver precisa colocar na mão no app.modules.ts na seção "imports"
 
+DIRETIVAS ESTRUTURAIS
+*ngIf
+*ngFor
+*ngShow
+
+BINDINGS
+{{eventos}}
+
+INTERPOLAÇÃO
+{{eventos[0].imagemURL}}
+
+PIPE 
+{{eventos | json}} o pipe é o traço na vertical
+quando faz isso "{{eventos | json}}" ele traz toda a lista de eventos
+formatados no padrão json. No "{{}}" vc pode aplicar código javascript
+
+PARA USER O INLINE 
+dentro do arquivo html do compoente 
+exemplo
+
+"form.form-inline>.form-group.mb-2" 
+ao dá um "TAB"
+form. - criar um objeto form
+.form-inline> - será a class="form-inline" após o ">" ficará dentro do form
+.form-group - criará uma div com a classe "form-group e mb2"
+
+Outros exemplos
+input.form-control.mr2[placeholder=buscar] -input tipo texto com a class=form-control mr2 e placeholder="buscar"
+btn.btn.btn-outline-success - button com class="btn btn-outline-success"
+
+THEAD NO BOOTSTRAP 5
+class="thead-dark" não funciona troque por class="table-dark"
+
+MAIS EXEMPLOS DE MONTAGEM DE TAGS html
+tfoot>tr>td[colspan=8]
+vai ficar assim
+  <tfoot>
+    <tr>
+      <td colspan="8"></td>
+    </tr>
+  </tfoot>
+
+1 — Teclas de seleção/Multi Cursor
+Essas foram as que mais me impressionaram quando conheci, com elas você pode fazer a mesma coisa em vários lugares do arquivo, digitando só uma vez e poupando seu tempo selecionando vários trechos de código:
+
+Alt + Click: Insere um cursor
+
+Shift+Alt+↑/ ↓: Insere um cursor na mesma posição da linha de cima ou na linha de baixo.
+
+Shift+Alt+I: Insere um cursor no final de cada linha selecionada.
+
+Ctrl+Shift+L: Adiciona um cursor no final de todas as ocorrências da seleção atual.
+
+2 —Edição de texto
+Também muito úteis, alguns já conhecido de outros editores mais simples:
+
+CTRL + /: Comenta todas as linhas selecionadas, com comentário de linha. Pode ser usado para remover os comentários também.
+
+Ctrl+Shift+A: Comenta o bloco de código selecionado, com comentário de bloco. Pode ser usado para remover os comentários também.
+
+Ctrl+Shift+K: Deleta a linha, sem precisar seleciona-la.
+
+3 — Geral
+Mais úteis para navegar pela ferramenta:
+
+Ctrl+P: Busca rápida de arquivos.
+
+F1: Abre a paleta de comandos.
+
+Ctrl + Shift + X: Exibe as extensões e possibilida instalar novas extensões.
+
+Ctrl+Shift+`: Abre/Fecha o terminal
+
+Alt+ seta pra cima ou para baixo move toda linda para onde você desejar.
+
+Existem várias outras teclas de atalho que podem ser úteis pra você, aqui é um resumo das que eu mais utilizo e que realmente sinto uma grande diferença. Por isso, não se esqueça de dar uma olhada nos outros comandos no arquivo que deixei lá encima.
+
+Deixe comentários caso tenha mais dicas de VS Code, ou caso tenha alguma tecla de atalho que você acha super da hora e que eu não coloquei aqui.
+
+PROPRIEDADE BINDINGS OR PROPERTY BINDINGS
+[style.width.px]="imagemLargura"
+[style.margin.px]="margemImagem"
+O que está dentro dos [] são property BINDINGS.
+
