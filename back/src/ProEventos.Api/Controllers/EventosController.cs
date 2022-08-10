@@ -13,7 +13,7 @@ namespace ProEventos.WebApi.Controllers
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
-        /*public IEnumerable<Evento> _evento = new Evento[]{
+        public IEnumerable<Evento> _evento = new Evento[]{
              new Evento(){
                 EventoId = 1,
                 Tema = "Angular 16 e .NET 5",
@@ -33,7 +33,7 @@ namespace ProEventos.WebApi.Controllers
                 ImagemURL = "foto1.png"
             },
 
-        };*/
+        };
         private readonly DataContext _context;
         public EventosController(DataContext context)
         {
