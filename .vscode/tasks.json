@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/back/src/ProEventos.WebApi/ProEventos.WebApi.csproj",
+                "${workspaceFolder}/back/src/ProEventos.Api/ProEventos.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/back/src/ProEventos.WebApi/ProEventos.WebApi.csproj",
+                "${workspaceFolder}/back/src/ProEventos.Api/ProEventos.Api.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/back/src/ProEventos.WebApi/ProEventos.WebApi.csproj"
+                "${workspaceFolder}/back/src/ProEventos.Api/ProEventos.Api.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
