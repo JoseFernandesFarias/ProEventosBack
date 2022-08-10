@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ProEventos.WebApi
+namespace ProEventos.Api
 {
     public class Program
     {
