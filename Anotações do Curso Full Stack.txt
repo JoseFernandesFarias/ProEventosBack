@@ -36,6 +36,24 @@ no fim de cada comando -h (help do comando em questão)
 Dotnet ef migrations add init - cria uma migration de nome init
 dotnet ef migrations add init -o Data/Migrations (cria uma migration de nome init e "-o" output e "Data/Migrations" o caminho onde será criada.)
 dotnet ef database update (cria o banco de dados ou atualiza com novas migrations)
+QUANDO O MIGRATIONS estiver num projeto que não seja projeto .NetCore ou .NetFramework deve rodar assim
+dotnet ef database update -s ProEventos.Api onde "ProEvento.Api" é o projeto .NetCore
+se as migrations estivessem já no projeto .NetCore ou .NetFramework não precisaria do "-s ProEventos.Api"
+
+
+QUANDO TEM VÁRIOS PROJETOS PARA CRIAR O MIGRATIONS SENDO MAIS DE UM PROJETO
+dotnet ef migrations add Init -p ProEventos.Persistence -s ProEventos.api 
+o comando "-p" informa para o Entity qual é o projeto que possui o DbContext
+o comando "-s" informa para o Entity qual é o projeto ".Net Core" ou ".Net framework"
+por que o EntityFramework precisa de um projeto .Net Framework ou um projeto .NEt Core ele
+não roda num projeto Standard como o Classlib que é um projeto Standard.
+OBS:
+    Se o projeto que possui as migrations der erro reclamando por exemplo:
+    "o namespace "Migration" não pode ser encontrado"
+    "O nome do tipo ou do namespace "MigrationBuilder" não pode ser encontrado"
+É POR QUE O PROJETO QUE POSSUI O DATACONTEXT  não possui a referência do pacote EntityFrameWorkCore.Tools:
+"<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.2" />"
+É preciso incluir esse pacote para poder compilar o projeto que tem o context quando já possui as Migrations.
 
 Comandos para setar nome do usuário e email do usuario no git
 git init
