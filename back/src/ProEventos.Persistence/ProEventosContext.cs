@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProEventos.Domain;
 
-namespace ProEventos.WebApi.Data
+namespace ProEventos.Persistence
 {
     public class ProEventosContext : DbContext
     {

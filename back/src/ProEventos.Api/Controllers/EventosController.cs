@@ -4,23 +4,31 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ProEventos.Application;
+using ProEventos.Persistence;
+using ProEventos.Domain;
+
 namespace ProEventos.WebApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
     {
+        private readonly ProEventosContext _context;
+        public EventosController(ProEventosContext context)
+        {
+            _context = context;
+        }
   
         [HttpGet]
-        public string Get()
+        public IEnumerable<Evento> Get()
         {
-            return "return method Get";
+            return _context.Eventos;
         }
         [HttpGet("{id}")]
-        public string GetById(int id)
+        public Evento GetById(int id)
         {
-            return "Return method Get id = " + id.ToString();
+            return _context.Eventos.FirstOrDefault(
+                evento => evento.Id == id);
         }
 
         [HttpPost]
