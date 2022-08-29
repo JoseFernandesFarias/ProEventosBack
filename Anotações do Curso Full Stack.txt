@@ -214,3 +214,15 @@ PROPRIEDADE BINDINGS OR PROPERTY BINDINGS
 [style.margin.px]="margemImagem"
 O que está dentro dos [] são property BINDINGS.
 
+CONTROLLER
+COM Task<IActionResult> GetById(int id) você pode usar os métodos
+NotFound("texto") , ok , etc 
+COM Task<ActionResult<Evento>> GetById(int id)você pode usar os métodos
+NotFound("texto") , ok , etc tendo tipado o Evento por exemplo.
+
+chamadas
+[HttpGet("{id}")] e [HttpGet("{tema}")] ele (o C#) não faz muita distinção de rota
+ele acaba chamando o método GetById(int id) 
+
+[HttpGet("{id}")] e [HttpGet("{tema}/tema")] aí ele (o C#) faz muita distinção de rota
+ele acaba chamando o método certo GetByTema(string tema)
