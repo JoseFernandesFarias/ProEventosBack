@@ -73,21 +73,58 @@ namespace ProEventos.WebApi.Controllers
             }
         }
         [HttpPost]
-        public string Post()
+        public async Task<IActionResult> Post(Evento model)
         {
-            return "Retorno do médoto Post";
+            try
+            {
+                var evento = await _eventoService.AddEventos(model);
+                if(evento == null) return BadRequest("Erro ao tentar adicionar eventos");
+
+                return Ok(evento);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar adicionar eventos. Erro:{ex.Message}");
+            }
         }
 
         [HttpPut("{id}")]
-        public string Put(int id)
+        public async Task<IActionResult> Put(int id,Evento model)
         {
-            return $"Retorno do médoto Put id = {id}";
+            try
+            {
+                var evento = await _eventoService.UpdateEvento(id , model);
+                if(evento == null) return BadRequest("Erro ao tentar atualizar eventos");
+
+                return Ok(evento);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar atualizar eventos. Erro:{ex.Message}");
+            }
         }
 
         [HttpDelete("{id}")]
-        public string Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return $"Retorno do médoto Delete id = {id}";
+            try
+            {
+                return await _eventoService.DeleteEvento(id) ? Ok("Deletado") : BadRequest("Evento não deletado.");
+                /*if(await _eventoService.DeleteEvento(id))
+                {
+                    return Ok("Deletado");
+                }else
+                {
+                    return BadRequest("Evento não deletado.");
+                }*/
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro ao tentar deletar eventos. Erro:{ex.Message}");
+            }
         }
 
 
