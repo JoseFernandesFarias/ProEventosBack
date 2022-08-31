@@ -31,18 +31,19 @@ Selecione "OmniSharp: Select Project"
 Selecione "OmniSharp: Proeventos.csproj ex"
 Selecione "OmniSharp: Restar OmniSharp"
 
-Comandos EF Entity FrameWork
+Comandos EF Entity FrameWork MIGRATIONS/DATABASE
 no fim de cada comando -h (help do comando em questão)
 Dotnet ef migrations add init - cria uma migration de nome init
 dotnet ef migrations add init -o Data/Migrations (cria uma migration de nome init e "-o" output e "Data/Migrations" o caminho onde será criada.)
 dotnet ef database update (cria o banco de dados ou atualiza com novas migrations)
 QUANDO O MIGRATIONS estiver num projeto que não seja projeto .NetCore ou .NetFramework deve rodar assim
-dotnet ef database update -s ProEventos.Api onde "ProEvento.Api" é o projeto .NetCore
+dotnet ef database update -s ..\ProEventos.Api\ProEventos.Api.csproj onde "ProEvento.Api.csproj" é o projeto .NetCore
 se as migrations estivessem já no projeto .NetCore ou .NetFramework não precisaria do "-s ProEventos.Api"
 
 
 QUANDO TEM VÁRIOS PROJETOS PARA CRIAR O MIGRATIONS SENDO MAIS DE UM PROJETO
-dotnet ef migrations add Init -p ProEventos.Persistence -s ProEventos.api 
+OBS:(precisa rodar migrations dentro do projeto que possui o context) 
+dotnet ef migrations add Init -p ProEventos.Persistence.csproj -s ..\ProEventos.api\ProEventos.api.csproj
 o comando "-p" informa para o Entity qual é o projeto que possui o DbContext
 o comando "-s" informa para o Entity qual é o projeto ".Net Core" ou ".Net framework"
 por que o EntityFramework precisa de um projeto .Net Framework ou um projeto .NEt Core ele

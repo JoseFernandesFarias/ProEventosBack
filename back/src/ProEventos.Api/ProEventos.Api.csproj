@@ -5,6 +5,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\proeventos.application\proeventos.application.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
